@@ -1,5 +1,13 @@
 ---
 configs:
+- config_name: raw_review_all
+  data_files:
+  - split: full
+    path: "raw/review_categories/*.jsonl"
+- config_name: raw_meta_all
+  data_files:
+  - split: full
+    path: "raw/meta_categories/*.jsonl"
 - config_name: raw_review_Handmade_Products
   data_files:
   - split: full
