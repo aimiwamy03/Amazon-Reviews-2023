@@ -280,4 +280,8 @@ configs:
   data_files:
   - split: full
     path: "raw/meta_categories/Baby_Products.jsonl"
+- config_name: group_by_user
+  data_files:
+  - split: full
+    path: "group_by_user/rating_only_grouped_by_user.jsonl"
 ---
