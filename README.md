@@ -1,5 +1,9 @@
 ---
 configs:
+- config_name: raw_meta_All_Beauty
+  data_files:
+  - split: full
+    path: "raw/meta_categories/All_Beauty.jsonl"
 - config_name: 0core_last_out_w_his_All_Beauty
   data_files:
   - split: train
