@@ -88,9 +88,11 @@ class AmazonReview2023(datasets.GeneratorBasedBuilder):
                         Here we dump it to string to make huggingface datasets easy
                         to store.
                         """
-                        if isinstance(self.config, RawMetaAmazonReview2023Config) and \
-                           'details' in dp:
-                            dp['details'] = json.dumps(dp['details'])
+                        if isinstance(self.config, RawMetaAmazonReview2023Config):
+                            if 'details' in dp:
+                                dp['details'] = json.dumps(dp['details'])
+                            if 'price' in dp:
+                                dp['price'] = str(dp['price'])
                     except:
                         continue
                 else:
