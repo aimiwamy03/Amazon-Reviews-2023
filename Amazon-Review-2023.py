@@ -93,6 +93,9 @@ class AmazonReview2023(datasets.GeneratorBasedBuilder):
                                 dp['details'] = json.dumps(dp['details'])
                             if 'price' in dp:
                                 dp['price'] = str(dp['price'])
+                            for optional_key in ['subtitle', 'author']:
+                                if optional_key not in dp:
+                                    dp[optional_key] = ''
                     except:
                         continue
                 else:
