@@ -26,9 +26,41 @@ class RawMetaAmazonReview2023Config(datasets.BuilderConfig):
 
 class AmazonReview2023(datasets.GeneratorBasedBuilder):
     BUILDER_CONFIGS = [
-        RawMetaAmazonReview2023Config(
-            name='raw_meta_All_Beauty'
-        )
+        # Raw item metadata
+        RawMetaAmazonReview2023Config(name='raw_meta_All_Beauty'),
+        RawMetaAmazonReview2023Config(name='raw_meta_Toys_and_Games'),
+        RawMetaAmazonReview2023Config(name='raw_meta_Cell_Phones_and_Accessories'),
+        RawMetaAmazonReview2023Config(name='raw_meta_Industrial_and_Scientific'),
+        RawMetaAmazonReview2023Config(name='raw_meta_Gift_Cards'),
+        RawMetaAmazonReview2023Config(name='raw_meta_Musical_Instruments'),
+        RawMetaAmazonReview2023Config(name='raw_meta_Electronics'),
+        RawMetaAmazonReview2023Config(name='raw_meta_Handmade_Products'),
+        RawMetaAmazonReview2023Config(name='raw_meta_Arts_Crafts_and_Sewing'),
+        RawMetaAmazonReview2023Config(name='raw_meta_Baby_Products'),
+        RawMetaAmazonReview2023Config(name='raw_meta_Health_and_Household'),
+        RawMetaAmazonReview2023Config(name='raw_meta_Office_Products'),
+        RawMetaAmazonReview2023Config(name='raw_meta_Digital_Music'),
+        RawMetaAmazonReview2023Config(name='raw_meta_Grocery_and_Gourmet_Food'),
+        RawMetaAmazonReview2023Config(name='raw_meta_Sports_and_Outdoors'),
+        RawMetaAmazonReview2023Config(name='raw_meta_Home_and_Kitchen'),
+        RawMetaAmazonReview2023Config(name='raw_meta_Subscription_Boxes'),
+        RawMetaAmazonReview2023Config(name='raw_meta_Tools_and_Home_Improvement'),
+        RawMetaAmazonReview2023Config(name='raw_meta_Pet_Supplies'),
+        RawMetaAmazonReview2023Config(name='raw_meta_Video_Games'),
+        RawMetaAmazonReview2023Config(name='raw_meta_Kindle_Store'),
+        RawMetaAmazonReview2023Config(name='raw_meta_Clothing_Shoes_and_Jewelry'),
+        RawMetaAmazonReview2023Config(name='raw_meta_Patio_Lawn_and_Garden'),
+        RawMetaAmazonReview2023Config(name='raw_meta_Unknown'),
+        RawMetaAmazonReview2023Config(name='raw_meta_Books'),
+        RawMetaAmazonReview2023Config(name='raw_meta_Automotive'),
+        RawMetaAmazonReview2023Config(name='raw_meta_CDs_and_Vinyl'),
+        RawMetaAmazonReview2023Config(name='raw_meta_Beauty_and_Personal_Care'),
+        RawMetaAmazonReview2023Config(name='raw_meta_Amazon_Fashion'),
+        RawMetaAmazonReview2023Config(name='raw_meta_Magazine_Subscriptions'),
+        RawMetaAmazonReview2023Config(name='raw_meta_Software'),
+        RawMetaAmazonReview2023Config(name='raw_meta_Health_and_Personal_Care'),
+        RawMetaAmazonReview2023Config(name='raw_meta_Appliances'),
+        RawMetaAmazonReview2023Config(name='raw_meta_Movies_and_TV'),
     ]
 
     def _info(self):
