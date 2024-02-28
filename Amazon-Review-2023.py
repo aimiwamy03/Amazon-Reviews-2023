@@ -65,7 +65,34 @@ class AmazonReview2023(datasets.GeneratorBasedBuilder):
 
     def _info(self):
         return datasets.DatasetInfo(
-            description=_AMAZON_REVIEW_2023_DESCRIPTION + self.config.description
+            description=_AMAZON_REVIEW_2023_DESCRIPTION + self.config.description,
+            features=datasets.Features({
+                'main_category': datasets.Value('string'),
+                'title': datasets.Value('string'),
+                'average_rating': datasets.Value(dtype='float64'),
+                'rating_number': datasets.Value(dtype='int64'),
+                'features': datasets.Sequence(datasets.Value('string')),
+                'description': datasets.Sequence(datasets.Value('string')),
+                'price': datasets.Value('string'),
+                'images': datasets.Sequence({
+                    'hi_res': datasets.Value('string'),
+                    'large': datasets.Value('string'),
+                    'thumb': datasets.Value('string'),
+                    'variant': datasets.Value('string')
+                }),
+                'videos': datasets.Sequence({
+                    'title': datasets.Value('string'),
+                    'url': datasets.Value('string'),
+                    'user_id': datasets.Value('string')
+                }),
+                'store': datasets.Value('string'),
+                'categories': datasets.Sequence(datasets.Value('string')),
+                'details': datasets.Value('string'),
+                'parent_asin': datasets.Value('string'),
+                'bought_together': datasets.Value(dtype='null', id=None),
+                'subtitle': datasets.Value('string'),
+                'author': datasets.Value('string')
+            })
         )
 
     def _split_generators(self, dl_manager):
@@ -95,7 +122,15 @@ class AmazonReview2023(datasets.GeneratorBasedBuilder):
                                 dp['price'] = str(dp['price'])
                             for optional_key in ['subtitle', 'author']:
                                 if optional_key not in dp:
-                                    dp[optional_key] = ''
+                                    dp[optional_key] = None
+                            for i in range(len(dp['images'])):
+                                for k in ['hi_res', 'large', 'thumb', 'variant']:
+                                    if k not in dp['images'][i]:
+                                        dp['images'][i][k] = None
+                            for i in range(len(dp['videos'])):
+                                for k in ['title', 'url', 'user_id']:
+                                    if k not in dp['videos'][i]:
+                                        dp['videos'][i][k] = None
                     except:
                         continue
                 else:
