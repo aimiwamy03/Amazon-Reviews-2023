@@ -34,6 +34,19 @@ class RawReviewAmazonReview2023Config(datasets.BuilderConfig):
         self.data_dir = f'raw/review_categories/{self.domain}.jsonl'
 
 
+class BenchmarkRatingOnlyAmazonReview2023Config(datasets.BuilderConfig):
+    def __init__(self, **kwargs):
+        super(BenchmarkRatingOnlyAmazonReview2023Config, self).__init__(**kwargs)
+
+        self.suffix = 'csv'
+        self.kcore = self.name[:len('0core')]
+        self.domain = self.name[len(f'0core_rating_only_'):]
+        self.description = \
+            f'This is the preprocessed benchmark in domain: {self.domain}.' \
+            f'The preprocessing includes {self.kcore} filtering and <user, item> interaction deduplication'
+        self.data_dir = f'benchmark/{self.kcore}/rating_only/{self.domain}.csv'
+
+
 class AmazonReview2023(datasets.GeneratorBasedBuilder):
     BUILDER_CONFIGS = [
         # Raw item metadata
@@ -71,6 +84,7 @@ class AmazonReview2023(datasets.GeneratorBasedBuilder):
         RawMetaAmazonReview2023Config(name='raw_meta_Health_and_Personal_Care'),
         RawMetaAmazonReview2023Config(name='raw_meta_Appliances'),
         RawMetaAmazonReview2023Config(name='raw_meta_Movies_and_TV'),
+        # Raw review
         RawReviewAmazonReview2023Config(name='raw_review_All_Beauty'),
         RawReviewAmazonReview2023Config(name='raw_review_Toys_and_Games'),
         RawReviewAmazonReview2023Config(name='raw_review_Cell_Phones_and_Accessories'),
@@ -105,6 +119,70 @@ class AmazonReview2023(datasets.GeneratorBasedBuilder):
         RawReviewAmazonReview2023Config(name='raw_review_Health_and_Personal_Care'),
         RawReviewAmazonReview2023Config(name='raw_review_Appliances'),
         RawReviewAmazonReview2023Config(name='raw_review_Movies_and_TV'),
+        # Rating only - 0core
+        BenchmarkRatingOnlyAmazonReview2023Config(name='0core_rating_only_All_Beauty'),
+        BenchmarkRatingOnlyAmazonReview2023Config(name='0core_rating_only_Toys_and_Games'),
+        BenchmarkRatingOnlyAmazonReview2023Config(name='0core_rating_only_Cell_Phones_and_Accessories'),
+        BenchmarkRatingOnlyAmazonReview2023Config(name='0core_rating_only_Industrial_and_Scientific'),
+        BenchmarkRatingOnlyAmazonReview2023Config(name='0core_rating_only_Gift_Cards'),
+        BenchmarkRatingOnlyAmazonReview2023Config(name='0core_rating_only_Musical_Instruments'),
+        BenchmarkRatingOnlyAmazonReview2023Config(name='0core_rating_only_Electronics'),
+        BenchmarkRatingOnlyAmazonReview2023Config(name='0core_rating_only_Handmade_Products'),
+        BenchmarkRatingOnlyAmazonReview2023Config(name='0core_rating_only_Arts_Crafts_and_Sewing'),
+        BenchmarkRatingOnlyAmazonReview2023Config(name='0core_rating_only_Baby_Products'),
+        BenchmarkRatingOnlyAmazonReview2023Config(name='0core_rating_only_Health_and_Household'),
+        BenchmarkRatingOnlyAmazonReview2023Config(name='0core_rating_only_Office_Products'),
+        BenchmarkRatingOnlyAmazonReview2023Config(name='0core_rating_only_Digital_Music'),
+        BenchmarkRatingOnlyAmazonReview2023Config(name='0core_rating_only_Grocery_and_Gourmet_Food'),
+        BenchmarkRatingOnlyAmazonReview2023Config(name='0core_rating_only_Sports_and_Outdoors'),
+        BenchmarkRatingOnlyAmazonReview2023Config(name='0core_rating_only_Home_and_Kitchen'),
+        BenchmarkRatingOnlyAmazonReview2023Config(name='0core_rating_only_Subscription_Boxes'),
+        BenchmarkRatingOnlyAmazonReview2023Config(name='0core_rating_only_Tools_and_Home_Improvement'),
+        BenchmarkRatingOnlyAmazonReview2023Config(name='0core_rating_only_Pet_Supplies'),
+        BenchmarkRatingOnlyAmazonReview2023Config(name='0core_rating_only_Video_Games'),
+        BenchmarkRatingOnlyAmazonReview2023Config(name='0core_rating_only_Kindle_Store'),
+        BenchmarkRatingOnlyAmazonReview2023Config(name='0core_rating_only_Clothing_Shoes_and_Jewelry'),
+        BenchmarkRatingOnlyAmazonReview2023Config(name='0core_rating_only_Patio_Lawn_and_Garden'),
+        BenchmarkRatingOnlyAmazonReview2023Config(name='0core_rating_only_Unknown'),
+        BenchmarkRatingOnlyAmazonReview2023Config(name='0core_rating_only_Books'),
+        BenchmarkRatingOnlyAmazonReview2023Config(name='0core_rating_only_Automotive'),
+        BenchmarkRatingOnlyAmazonReview2023Config(name='0core_rating_only_CDs_and_Vinyl'),
+        BenchmarkRatingOnlyAmazonReview2023Config(name='0core_rating_only_Beauty_and_Personal_Care'),
+        BenchmarkRatingOnlyAmazonReview2023Config(name='0core_rating_only_Amazon_Fashion'),
+        BenchmarkRatingOnlyAmazonReview2023Config(name='0core_rating_only_Magazine_Subscriptions'),
+        BenchmarkRatingOnlyAmazonReview2023Config(name='0core_rating_only_Software'),
+        BenchmarkRatingOnlyAmazonReview2023Config(name='0core_rating_only_Health_and_Personal_Care'),
+        BenchmarkRatingOnlyAmazonReview2023Config(name='0core_rating_only_Appliances'),
+        BenchmarkRatingOnlyAmazonReview2023Config(name='0core_rating_only_Movies_and_TV'),
+        # Rating only - 5core
+        BenchmarkRatingOnlyAmazonReview2023Config(name='5core_rating_only_All_Beauty'),
+        BenchmarkRatingOnlyAmazonReview2023Config(name='5core_rating_only_Toys_and_Games'),
+        BenchmarkRatingOnlyAmazonReview2023Config(name='5core_rating_only_Cell_Phones_and_Accessories'),
+        BenchmarkRatingOnlyAmazonReview2023Config(name='5core_rating_only_Industrial_and_Scientific'),
+        BenchmarkRatingOnlyAmazonReview2023Config(name='5core_rating_only_Gift_Cards'),
+        BenchmarkRatingOnlyAmazonReview2023Config(name='5core_rating_only_Musical_Instruments'),
+        BenchmarkRatingOnlyAmazonReview2023Config(name='5core_rating_only_Electronics'),
+        BenchmarkRatingOnlyAmazonReview2023Config(name='5core_rating_only_Arts_Crafts_and_Sewing'),
+        BenchmarkRatingOnlyAmazonReview2023Config(name='5core_rating_only_Baby_Products'),
+        BenchmarkRatingOnlyAmazonReview2023Config(name='5core_rating_only_Health_and_Household'),
+        BenchmarkRatingOnlyAmazonReview2023Config(name='5core_rating_only_Office_Products'),
+        BenchmarkRatingOnlyAmazonReview2023Config(name='5core_rating_only_Grocery_and_Gourmet_Food'),
+        BenchmarkRatingOnlyAmazonReview2023Config(name='5core_rating_only_Sports_and_Outdoors'),
+        BenchmarkRatingOnlyAmazonReview2023Config(name='5core_rating_only_Home_and_Kitchen'),
+        BenchmarkRatingOnlyAmazonReview2023Config(name='5core_rating_only_Tools_and_Home_Improvement'),
+        BenchmarkRatingOnlyAmazonReview2023Config(name='5core_rating_only_Pet_Supplies'),
+        BenchmarkRatingOnlyAmazonReview2023Config(name='5core_rating_only_Video_Games'),
+        BenchmarkRatingOnlyAmazonReview2023Config(name='5core_rating_only_Kindle_Store'),
+        BenchmarkRatingOnlyAmazonReview2023Config(name='5core_rating_only_Clothing_Shoes_and_Jewelry'),
+        BenchmarkRatingOnlyAmazonReview2023Config(name='5core_rating_only_Patio_Lawn_and_Garden'),
+        BenchmarkRatingOnlyAmazonReview2023Config(name='5core_rating_only_Unknown'),
+        BenchmarkRatingOnlyAmazonReview2023Config(name='5core_rating_only_Books'),
+        BenchmarkRatingOnlyAmazonReview2023Config(name='5core_rating_only_Automotive'),
+        BenchmarkRatingOnlyAmazonReview2023Config(name='5core_rating_only_CDs_and_Vinyl'),
+        BenchmarkRatingOnlyAmazonReview2023Config(name='5core_rating_only_Beauty_and_Personal_Care'),
+        BenchmarkRatingOnlyAmazonReview2023Config(name='5core_rating_only_Magazine_Subscriptions'),
+        BenchmarkRatingOnlyAmazonReview2023Config(name='5core_rating_only_Software'),
+        BenchmarkRatingOnlyAmazonReview2023Config(name='5core_rating_only_Movies_and_TV'),
     ]
 
     def _info(self):
@@ -157,6 +235,8 @@ class AmazonReview2023(datasets.GeneratorBasedBuilder):
 
     def _generate_examples(self, filepath):
         with open(filepath, 'r', encoding='utf-8') as file:
+            if self.config.suffix == 'csv':
+                colnames = file.readline().strip().split(',')
             for idx, line in enumerate(file):
                 if self.config.suffix == 'jsonl':
                     try:
@@ -184,6 +264,9 @@ class AmazonReview2023(datasets.GeneratorBasedBuilder):
                                         dp['videos'][i][k] = None
                     except:
                         continue
+                elif self.config.suffix == 'csv':
+                    line = line.strip().split(',')
+                    dp = {k: v for k, v in zip(colnames, line)}
                 else:
                     raise ValueError(f'Unknown suffix {self.config.suffix}.')
                 yield idx, dp
