@@ -24,6 +24,16 @@ class RawMetaAmazonReview2023Config(datasets.BuilderConfig):
         self.data_dir = f'raw/meta_categories/meta_{self.domain}.jsonl'
 
 
+class RawReviewAmazonReview2023Config(datasets.BuilderConfig):
+    def __init__(self, **kwargs):
+        super(RawReviewAmazonReview2023Config, self).__init__(**kwargs)
+
+        self.suffix = 'jsonl'
+        self.domain = self.name[len(f'raw_review_'):]
+        self.description = f'This is a subset for reviews in domain: {self.domain}.'
+        self.data_dir = f'raw/review_categories/{self.domain}.jsonl'
+
+
 class AmazonReview2023(datasets.GeneratorBasedBuilder):
     BUILDER_CONFIGS = [
         # Raw item metadata
@@ -61,12 +71,46 @@ class AmazonReview2023(datasets.GeneratorBasedBuilder):
         RawMetaAmazonReview2023Config(name='raw_meta_Health_and_Personal_Care'),
         RawMetaAmazonReview2023Config(name='raw_meta_Appliances'),
         RawMetaAmazonReview2023Config(name='raw_meta_Movies_and_TV'),
+        RawReviewAmazonReview2023Config(name='raw_review_All_Beauty'),
+        RawReviewAmazonReview2023Config(name='raw_review_Toys_and_Games'),
+        RawReviewAmazonReview2023Config(name='raw_review_Cell_Phones_and_Accessories'),
+        RawReviewAmazonReview2023Config(name='raw_review_Industrial_and_Scientific'),
+        RawReviewAmazonReview2023Config(name='raw_review_Gift_Cards'),
+        RawReviewAmazonReview2023Config(name='raw_review_Musical_Instruments'),
+        RawReviewAmazonReview2023Config(name='raw_review_Electronics'),
+        RawReviewAmazonReview2023Config(name='raw_review_Handmade_Products'),
+        RawReviewAmazonReview2023Config(name='raw_review_Arts_Crafts_and_Sewing'),
+        RawReviewAmazonReview2023Config(name='raw_review_Baby_Products'),
+        RawReviewAmazonReview2023Config(name='raw_review_Health_and_Household'),
+        RawReviewAmazonReview2023Config(name='raw_review_Office_Products'),
+        RawReviewAmazonReview2023Config(name='raw_review_Digital_Music'),
+        RawReviewAmazonReview2023Config(name='raw_review_Grocery_and_Gourmet_Food'),
+        RawReviewAmazonReview2023Config(name='raw_review_Sports_and_Outdoors'),
+        RawReviewAmazonReview2023Config(name='raw_review_Home_and_Kitchen'),
+        RawReviewAmazonReview2023Config(name='raw_review_Subscription_Boxes'),
+        RawReviewAmazonReview2023Config(name='raw_review_Tools_and_Home_Improvement'),
+        RawReviewAmazonReview2023Config(name='raw_review_Pet_Supplies'),
+        RawReviewAmazonReview2023Config(name='raw_review_Video_Games'),
+        RawReviewAmazonReview2023Config(name='raw_review_Kindle_Store'),
+        RawReviewAmazonReview2023Config(name='raw_review_Clothing_Shoes_and_Jewelry'),
+        RawReviewAmazonReview2023Config(name='raw_review_Patio_Lawn_and_Garden'),
+        RawReviewAmazonReview2023Config(name='raw_review_Unknown'),
+        RawReviewAmazonReview2023Config(name='raw_review_Books'),
+        RawReviewAmazonReview2023Config(name='raw_review_Automotive'),
+        RawReviewAmazonReview2023Config(name='raw_review_CDs_and_Vinyl'),
+        RawReviewAmazonReview2023Config(name='raw_review_Beauty_and_Personal_Care'),
+        RawReviewAmazonReview2023Config(name='raw_review_Amazon_Fashion'),
+        RawReviewAmazonReview2023Config(name='raw_review_Magazine_Subscriptions'),
+        RawReviewAmazonReview2023Config(name='raw_review_Software'),
+        RawReviewAmazonReview2023Config(name='raw_review_Health_and_Personal_Care'),
+        RawReviewAmazonReview2023Config(name='raw_review_Appliances'),
+        RawReviewAmazonReview2023Config(name='raw_review_Movies_and_TV'),
     ]
 
     def _info(self):
-        return datasets.DatasetInfo(
-            description=_AMAZON_REVIEW_2023_DESCRIPTION + self.config.description,
-            features=datasets.Features({
+        features = None
+        if isinstance(self.config, RawMetaAmazonReview2023Config):
+            features = datasets.Features({
                 'main_category': datasets.Value('string'),
                 'title': datasets.Value('string'),
                 'average_rating': datasets.Value(dtype='float64'),
@@ -89,10 +133,17 @@ class AmazonReview2023(datasets.GeneratorBasedBuilder):
                 'categories': datasets.Sequence(datasets.Value('string')),
                 'details': datasets.Value('string'),
                 'parent_asin': datasets.Value('string'),
-                'bought_together': datasets.Value(dtype='null', id=None),
+                'bought_together': datasets.Value('string'),    # TODO: Check this type
                 'subtitle': datasets.Value('string'),
                 'author': datasets.Value('string')
             })
+        elif isinstance(self.config, RawReviewAmazonReview2023Config):
+            # TODO: Check review features
+            pass
+
+        return datasets.DatasetInfo(
+            description=_AMAZON_REVIEW_2023_DESCRIPTION + self.config.description,
+            features=features
         )
 
     def _split_generators(self, dl_manager):
