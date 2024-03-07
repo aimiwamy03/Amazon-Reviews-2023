@@ -102,7 +102,7 @@ dataset = load_dataset("McAuley-Lab/Amazon-Reviews-2023", "raw_review_All_Beauty
 print(dataset["full"][0])
 ```
 
-```text
+```json
 {'rating': 5.0,
  'title': 'Such a lovely scent but not overpowering.',
  'text': "This spray is really nice. It smells really good, goes on really fine, and does the trick. I will say it feels like you need a lot of it though to get the texture I want. I have a lot of hair, medium thickness. I am comparing to other brands with yucky chemicals so I'm gonna stick with this. Try it!",
@@ -117,12 +117,12 @@ print(dataset["full"][0])
 
 ### Load Item Metadata
 
-```
+```python
 dataset = load_dataset("McAuley-Lab/Amazon-Reviews-2023", "raw_meta_All_Beauty", split="full", trust_remote_code=True)
 print(dataset[0])
 ```
 
-```text
+```json
 {'main_category': 'All Beauty',
  'title': 'Howard LC0008 Leather Conditioner, 8-Ounce (4-Pack)',
  'average_rating': 4.8,
