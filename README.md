@@ -88,117 +88,66 @@ In the Amazon Reviews'23, we provide:
 | Unknown | 23.1M | 13.2M | 63.8M | 3.3B | 232.8M | <a href='https://datarepo.eng.ucsd.edu/mcauley_group/data/amazon_2023/raw/review_categories/Unknown.jsonl.gz' download> review</a>, <a href='https://datarepo.eng.ucsd.edu/mcauley_group/data/amazon_2023/raw/meta_categories/meta_Unknown.jsonl.gz' download> meta </a> |
 
 
-> Check Pure ID files and corresponding data splitting strategies in <b>[Common Data Processing](data_processing/index)</b> section.
+> Check Pure ID files and corresponding data splitting strategies in <b>[Common Data Processing](https://amazon-reviews-2023.github.io/data_processing/index.html)</b> section.
 
 ## Quick Start
 
 ### Load User Reviews
 
 
-```
-import json
+```python
+from datasets import load_dataset
 
-file = # e.g., "All_Beauty.jsonl", downloaded from the `review` link above
-with open(file, 'r') as fp:
-    for line in fp:
-        print(json.loads(line.strip()))
+dataset = load_dataset("McAuley-Lab/Amazon-Reviews-2023", "raw_review_All_Beauty", trust_remote_code=True)
+print(dataset["full"][0])
 ```
 
 ```text
-......
-{
-  "sortTimestamp": 1634275259292,
-  "rating": 3.0,
-  "helpfulVotes": 0,
-  "title": "Meh",
-  "text": "These were lightweight and soft but much too small for my liking. I would have preferred two of these together to make one loc. For that reason I will not be repurchasing.",
-  "images": [
-    {
-      "smallImageUrl": "https://m.media-amazon.com/images/I/81FN4c0VHzL._SL256_.jpg",
-      "mediumImageUrl": "https://m.media-amazon.com/images/I/81FN4c0VHzL._SL800_.jpg",
-      "largeImageUrl": "https://m.media-amazon.com/images/I/81FN4c0VHzL._SL1600_.jpg",
-      "attachmentType": "IMAGE"
-    }
-  ],
-  "asin": "B088SZDGXG",
-  "verifiedPurchase": true,
-  "parent_asin": "B08BBQ29N5",
-  "user_id": "AEYORY2AVPMCPDV57CE337YU5LXA"
-}
-......
+{'rating': 5.0,
+ 'title': 'Such a lovely scent but not overpowering.',
+ 'text': "This spray is really nice. It smells really good, goes on really fine, and does the trick. I will say it feels like you need a lot of it though to get the texture I want. I have a lot of hair, medium thickness. I am comparing to other brands with yucky chemicals so I'm gonna stick with this. Try it!",
+ 'images': [],
+ 'asin': 'B00YQ6X8EO',
+ 'parent_asin': 'B00YQ6X8EO',
+ 'user_id': 'AGKHLEW2SOWHNMFQIJGBECAF7INQ',
+ 'timestamp': 1588687728923,
+ 'helpful_vote': 0,
+ 'verified_purchase': True}
 ```
 
 ### Load Item Metadata
 
 ```
-import json
-
-file = # e.g., "meta_All_Beauty.jsonl", downloaded from the `meta` link above
-with open(file, 'r') as fp:
-    for line in fp:
-        print(json.loads(line.strip()))
+dataset = load_dataset("McAuley-Lab/Amazon-Reviews-2023", "raw_meta_All_Beauty", split="full", trust_remote_code=True)
+print(dataset[0])
 ```
 
 ```text
-......
-{
-  "main_category": "All Beauty",
-  "title": "Lurrose 100Pcs Full Cover Fake Toenails Artificial Transparent Nail Tips Nail Art for DIY",
-  "average_rating": 3.7,
-  "rating_number": 35,
-  "features": [
-    "The false toenails are durable with perfect length. You have the option to wear them long or clip them short, easy to trim and file them to in any length and shape you like.",
-    "ABS is kind of green enviromental material, and makes the nails durable, breathable, light even no pressure on your own nails.",
-    "Fit well to your natural toenails. Non toxic, no smell, no harm to your health.",
-    "Wonderful as gift for girlfriend, family and friends.",
-    "The easiest and most efficient way to do your toenail tips for manicures or nail art designs. It's fashion, creative, a useful accessory brighten up your look, also as a gift."
-  ],
-  "description": [
-    "Description",
-    "The false toenails are durable with perfect length. You have the option to wear them long or clip them short, easy to trim and file them to in any length and shape you like. Plus, ABS is kind of green enviromental material, and makes the nails durable, breathable, light even no pressure on your own toenails. Fit well to your natural toenails. Non toxic, no smell, no harm to your health.",
-    "Feature",
-    "- Color: As Shown.- Material: ABS.- Size: 14.3 x 7.2 x 1cm.",
-    "Package Including",
-    "100 x Pieces fake toenails"
-  ],
-  "price": 6.99,
-  "images": [
-    {
-      "hiRes": "https://m.media-amazon.com/images/I/41a1Sj7Q20L._SL1005_.jpg",
-      "thumb": "https://m.media-amazon.com/images/I/31dlCd7tHSL._SS40_.jpg",
-      "large": "https://m.media-amazon.com/images/I/31dlCd7tHSL.jpg",
-      "variant": "MAIN"
-    },
-    {
-      "hiRes": "https://m.media-amazon.com/images/I/510BWq7O95L._SL1005_.jpg",
-      "thumb": "https://m.media-amazon.com/images/I/31sLajrdHOL._SS40_.jpg",
-      "large": "https://m.media-amazon.com/images/I/31sLajrdHOL.jpg",
-      "variant": "PT01"
-    },
-    ......
-  ],
-  "videos": [],
-  "boughtTogether": null,
-  "store": "Lurrose",
-  "categories": [],
-  "details": {
-    "Color": "As Shown",
-    "Size": "Large",
-    "Material": "Acrylonitrile Butadiene Styrene (ABS)",
-    "Brand": "Lurrose",
-    "Style": "French",
-    "Product Dimensions": "5.63 x 2.83 x 0.39 inches; 1.9 Ounces",
-    "UPC": "799768026253",
-    "Manufacturer": "Lurrose"
-  },
-  "parent_asin": "B07G9GWFSM"
-}
-......
+{'main_category': 'All Beauty',
+ 'title': 'Howard LC0008 Leather Conditioner, 8-Ounce (4-Pack)',
+ 'average_rating': 4.8,
+ 'rating_number': 10,
+ 'features': [],
+ 'description': [],
+ 'price': 'None',
+ 'images': {'hi_res': [None,
+   'https://m.media-amazon.com/images/I/71i77AuI9xL._SL1500_.jpg'],
+  'large': ['https://m.media-amazon.com/images/I/41qfjSfqNyL.jpg',
+   'https://m.media-amazon.com/images/I/41w2yznfuZL.jpg'],
+  'thumb': ['https://m.media-amazon.com/images/I/41qfjSfqNyL._SS40_.jpg',
+   'https://m.media-amazon.com/images/I/41w2yznfuZL._SS40_.jpg'],
+  'variant': ['MAIN', 'PT01']},
+ 'videos': {'title': [], 'url': [], 'user_id': []},
+ 'store': 'Howard Products',
+ 'categories': [],
+ 'details': '{"Package Dimensions": "7.1 x 5.5 x 3 inches; 2.38 Pounds", "UPC": "617390882781"}',
+ 'parent_asin': 'B01CUPMQZE',
+ 'bought_together': None,
+ 'subtitle': None,
+ 'author': None}
 ```
 
-```{seealso}
-Check data loading examples and Huggingface datasets APIs in <b>[Common Data Loading](data_loading/index)</b> section.
-```
+> Check data loading examples and Huggingface datasets APIs in <b>[Common Data Loading](https://amazon-reviews-2023.github.io/data_loading/index.html)</b> section.
 
 
 ## Data Fields
