@@ -186,6 +186,17 @@ print(dataset[0])
 | parent_asin | str | Parent ID of the product. |
 | bought_together | list | Recommended bundles from the websites. |
 
+## Citation
+
+```bibtex
+@article{hou2024bridging,
+  title={Bridging Language and Items for Retrieval and Recommendation},
+  author={Hou, Yupeng and Li, Jiacheng and He, Zhankui and Yan, An and Chen, Xiusi and McAuley, Julian},
+  journal={arXiv preprint arXiv:2403.03952},
+  year={2024}
+}
+```
+
 ## Contact Us
 
 - **Report Bugs**: To report bugs in the dataset, please file an issue on our [GitHub](https://github.com/hyp1231/AmazonReviews2023/issues/new).
