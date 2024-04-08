@@ -57,3 +57,4 @@ raw/review_categories/*.jsonl filter=lfs diff=lfs merge=lfs -text
 raw/meta_categories/*.jsonl filter=lfs diff=lfs merge=lfs -text
 group_by_user/*.jsonl filter=lfs diff=lfs merge=lfs -text
 benchmark/*/*/*.csv filter=lfs diff=lfs merge=lfs -text
+asin2category.json filter=lfs diff=lfs merge=lfs -text
