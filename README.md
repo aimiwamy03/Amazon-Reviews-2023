@@ -12,6 +12,11 @@ size_categories:
 
 **Please also visit [amazon-reviews-2023.github.io/](https://amazon-reviews-2023.github.io/) for more details, loading scripts, and preprocessed benchmark files.**
 
+**[April 7, 2024]** We add two useful files:
+
+1. `all_categories.txt`: 34 lines (33 categories + "Unknown"), each line contains a category name.
+2. `asin2category.json`: A mapping between `parent_asin` (item ID) to its corresponding category name.
+
 ---
 
 <!-- Provide a quick summary of the dataset. -->
