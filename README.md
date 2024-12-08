@@ -6,6 +6,530 @@ tags:
 - reviews
 size_categories:
 - 10B<n<100B
+dataset_info:
+- config_name: raw_meta_All_Beauty
+  features:
+  - name: main_category
+    dtype: string
+  - name: title
+    dtype: string
+  - name: average_rating
+    dtype: float64
+  - name: rating_number
+    dtype: int64
+  - name: features
+    sequence: string
+  - name: description
+    sequence: string
+  - name: price
+    dtype: string
+  - name: images
+    sequence:
+    - name: hi_res
+      dtype: string
+    - name: large
+      dtype: string
+    - name: thumb
+      dtype: string
+    - name: variant
+      dtype: string
+  - name: videos
+    sequence:
+    - name: title
+      dtype: string
+    - name: url
+      dtype: string
+    - name: user_id
+      dtype: string
+  - name: store
+    dtype: string
+  - name: categories
+    sequence: string
+  - name: details
+    dtype: string
+  - name: parent_asin
+    dtype: string
+  - name: bought_together
+    dtype: string
+  - name: subtitle
+    dtype: string
+  - name: author
+    dtype: string
+  splits:
+  - name: full
+    num_bytes: 172622243
+    num_examples: 112590
+  download_size: 59635138
+  dataset_size: 172622243
+- config_name: raw_meta_Arts_Crafts_and_Sewing
+  features:
+  - name: main_category
+    dtype: string
+  - name: title
+    dtype: string
+  - name: average_rating
+    dtype: float64
+  - name: rating_number
+    dtype: int64
+  - name: features
+    sequence: string
+  - name: description
+    sequence: string
+  - name: price
+    dtype: string
+  - name: images
+    sequence:
+    - name: hi_res
+      dtype: string
+    - name: large
+      dtype: string
+    - name: thumb
+      dtype: string
+    - name: variant
+      dtype: string
+  - name: videos
+    sequence:
+    - name: title
+      dtype: string
+    - name: url
+      dtype: string
+    - name: user_id
+      dtype: string
+  - name: store
+    dtype: string
+  - name: categories
+    sequence: string
+  - name: details
+    dtype: string
+  - name: parent_asin
+    dtype: string
+  - name: bought_together
+    dtype: string
+  - name: subtitle
+    dtype: string
+  - name: author
+    dtype: string
+  splits:
+  - name: full
+    num_bytes: 1893257069
+    num_examples: 801446
+  download_size: 806711170
+  dataset_size: 1893257069
+- config_name: raw_meta_Cell_Phones_and_Accessories
+  features:
+  - name: main_category
+    dtype: string
+  - name: title
+    dtype: string
+  - name: average_rating
+    dtype: float64
+  - name: rating_number
+    dtype: int64
+  - name: features
+    sequence: string
+  - name: description
+    sequence: string
+  - name: price
+    dtype: string
+  - name: images
+    sequence:
+    - name: hi_res
+      dtype: string
+    - name: large
+      dtype: string
+    - name: thumb
+      dtype: string
+    - name: variant
+      dtype: string
+  - name: videos
+    sequence:
+    - name: title
+      dtype: string
+    - name: url
+      dtype: string
+    - name: user_id
+      dtype: string
+  - name: store
+    dtype: string
+  - name: categories
+    sequence: string
+  - name: details
+    dtype: string
+  - name: parent_asin
+    dtype: string
+  - name: bought_together
+    dtype: string
+  - name: subtitle
+    dtype: string
+  - name: author
+    dtype: string
+  splits:
+  - name: full
+    num_bytes: 3497596478
+    num_examples: 1288490
+  download_size: 1262072469
+  dataset_size: 3497596478
+- config_name: raw_meta_Electronics
+  features:
+  - name: main_category
+    dtype: string
+  - name: title
+    dtype: string
+  - name: average_rating
+    dtype: float64
+  - name: rating_number
+    dtype: int64
+  - name: features
+    sequence: string
+  - name: description
+    sequence: string
+  - name: price
+    dtype: string
+  - name: images
+    sequence:
+    - name: hi_res
+      dtype: string
+    - name: large
+      dtype: string
+    - name: thumb
+      dtype: string
+    - name: variant
+      dtype: string
+  - name: videos
+    sequence:
+    - name: title
+      dtype: string
+    - name: url
+      dtype: string
+    - name: user_id
+      dtype: string
+  - name: store
+    dtype: string
+  - name: categories
+    sequence: string
+  - name: details
+    dtype: string
+  - name: parent_asin
+    dtype: string
+  - name: bought_together
+    dtype: string
+  - name: subtitle
+    dtype: string
+  - name: author
+    dtype: string
+  splits:
+  - name: full
+    num_bytes: 4603602269
+    num_examples: 1610012
+  download_size: 1955009715
+  dataset_size: 4603602269
+- config_name: raw_meta_Gift_Cards
+  features:
+  - name: main_category
+    dtype: string
+  - name: title
+    dtype: string
+  - name: average_rating
+    dtype: float64
+  - name: rating_number
+    dtype: int64
+  - name: features
+    sequence: string
+  - name: description
+    sequence: string
+  - name: price
+    dtype: string
+  - name: images
+    sequence:
+    - name: hi_res
+      dtype: string
+    - name: large
+      dtype: string
+    - name: thumb
+      dtype: string
+    - name: variant
+      dtype: string
+  - name: videos
+    sequence:
+    - name: title
+      dtype: string
+    - name: url
+      dtype: string
+    - name: user_id
+      dtype: string
+  - name: store
+    dtype: string
+  - name: categories
+    sequence: string
+  - name: details
+    dtype: string
+  - name: parent_asin
+    dtype: string
+  - name: bought_together
+    dtype: string
+  - name: subtitle
+    dtype: string
+  - name: author
+    dtype: string
+  splits:
+  - name: full
+    num_bytes: 1740761
+    num_examples: 1137
+  download_size: 401887
+  dataset_size: 1740761
+- config_name: raw_meta_Handmade_Products
+  features:
+  - name: main_category
+    dtype: string
+  - name: title
+    dtype: string
+  - name: average_rating
+    dtype: float64
+  - name: rating_number
+    dtype: int64
+  - name: features
+    sequence: string
+  - name: description
+    sequence: string
+  - name: price
+    dtype: string
+  - name: images
+    sequence:
+    - name: hi_res
+      dtype: string
+    - name: large
+      dtype: string
+    - name: thumb
+      dtype: string
+    - name: variant
+      dtype: string
+  - name: videos
+    sequence:
+    - name: title
+      dtype: string
+    - name: url
+      dtype: string
+    - name: user_id
+      dtype: string
+  - name: store
+    dtype: string
+  - name: categories
+    sequence: string
+  - name: details
+    dtype: string
+  - name: parent_asin
+    dtype: string
+  - name: bought_together
+    dtype: string
+  - name: subtitle
+    dtype: string
+  - name: author
+    dtype: string
+  splits:
+  - name: full
+    num_bytes: 340772183
+    num_examples: 164817
+  download_size: 132049123
+  dataset_size: 340772183
+- config_name: raw_meta_Industrial_and_Scientific
+  features:
+  - name: main_category
+    dtype: string
+  - name: title
+    dtype: string
+  - name: average_rating
+    dtype: float64
+  - name: rating_number
+    dtype: int64
+  - name: features
+    sequence: string
+  - name: description
+    sequence: string
+  - name: price
+    dtype: string
+  - name: images
+    sequence:
+    - name: hi_res
+      dtype: string
+    - name: large
+      dtype: string
+    - name: thumb
+      dtype: string
+    - name: variant
+      dtype: string
+  - name: videos
+    sequence:
+    - name: title
+      dtype: string
+    - name: url
+      dtype: string
+    - name: user_id
+      dtype: string
+  - name: store
+    dtype: string
+  - name: categories
+    sequence: string
+  - name: details
+    dtype: string
+  - name: parent_asin
+    dtype: string
+  - name: bought_together
+    dtype: string
+  - name: subtitle
+    dtype: string
+  - name: author
+    dtype: string
+  splits:
+  - name: full
+    num_bytes: 986632649
+    num_examples: 427564
+  download_size: 425007659
+  dataset_size: 986632649
+- config_name: raw_meta_Musical_Instruments
+  features:
+  - name: main_category
+    dtype: string
+  - name: title
+    dtype: string
+  - name: average_rating
+    dtype: float64
+  - name: rating_number
+    dtype: int64
+  - name: features
+    sequence: string
+  - name: description
+    sequence: string
+  - name: price
+    dtype: string
+  - name: images
+    sequence:
+    - name: hi_res
+      dtype: string
+    - name: large
+      dtype: string
+    - name: thumb
+      dtype: string
+    - name: variant
+      dtype: string
+  - name: videos
+    sequence:
+    - name: title
+      dtype: string
+    - name: url
+      dtype: string
+    - name: user_id
+      dtype: string
+  - name: store
+    dtype: string
+  - name: categories
+    sequence: string
+  - name: details
+    dtype: string
+  - name: parent_asin
+    dtype: string
+  - name: bought_together
+    dtype: string
+  - name: subtitle
+    dtype: string
+  - name: author
+    dtype: string
+  splits:
+  - name: full
+    num_bytes: 553296301
+    num_examples: 213593
+  download_size: 229633633
+  dataset_size: 553296301
+- config_name: raw_meta_Toys_and_Games
+  features:
+  - name: main_category
+    dtype: string
+  - name: title
+    dtype: string
+  - name: average_rating
+    dtype: float64
+  - name: rating_number
+    dtype: int64
+  - name: features
+    sequence: string
+  - name: description
+    sequence: string
+  - name: price
+    dtype: string
+  - name: images
+    sequence:
+    - name: hi_res
+      dtype: string
+    - name: large
+      dtype: string
+    - name: thumb
+      dtype: string
+    - name: variant
+      dtype: string
+  - name: videos
+    sequence:
+    - name: title
+      dtype: string
+    - name: url
+      dtype: string
+    - name: user_id
+      dtype: string
+  - name: store
+    dtype: string
+  - name: categories
+    sequence: string
+  - name: details
+    dtype: string
+  - name: parent_asin
+    dtype: string
+  - name: bought_together
+    dtype: string
+  - name: subtitle
+    dtype: string
+  - name: author
+    dtype: string
+  splits:
+  - name: full
+    num_bytes: 2291736294
+    num_examples: 890874
+  download_size: 972667016
+  dataset_size: 2291736294
+configs:
+- config_name: raw_meta_All_Beauty
+  data_files:
+  - split: full
+    path: raw_meta_All_Beauty/full-*
+- config_name: raw_meta_Arts_Crafts_and_Sewing
+  data_files:
+  - split: full
+    path: raw_meta_Arts_Crafts_and_Sewing/full-*
+- config_name: raw_meta_Cell_Phones_and_Accessories
+  data_files:
+  - split: full
+    path: raw_meta_Cell_Phones_and_Accessories/full-*
+- config_name: raw_meta_Electronics
+  data_files:
+  - split: full
+    path: raw_meta_Electronics/full-*
+- config_name: raw_meta_Gift_Cards
+  data_files:
+  - split: full
+    path: raw_meta_Gift_Cards/full-*
+- config_name: raw_meta_Handmade_Products
+  data_files:
+  - split: full
+    path: raw_meta_Handmade_Products/full-*
+- config_name: raw_meta_Industrial_and_Scientific
+  data_files:
+  - split: full
+    path: raw_meta_Industrial_and_Scientific/full-*
+- config_name: raw_meta_Musical_Instruments
+  data_files:
+  - split: full
+    path: raw_meta_Musical_Instruments/full-*
+- config_name: raw_meta_Toys_and_Games
+  data_files:
+  - split: full
+    path: raw_meta_Toys_and_Games/full-*
 ---
 
 # Amazon Reviews 2023
