@@ -1,0 +1,22 @@
+# AI Consumer Insights Platform - Environment Variables
+# Copy this file to .env and fill in your API keys
+
+# OpenAI API Key (optional, for advanced LLM features)
+OPENAI_API_KEY=your_openai_api_key_here
+
+# Other API Keys (if needed in future)
+# ANTHROPIC_API_KEY=your_anthropic_api_key_here
+# HUGGINGFACE_API_KEY=your_huggingface_api_key_here
+
+# Model Configuration
+SENTIMENT_MODEL=cardiffnlp/twitter-roberta-base-sentiment-latest
+EMBEDDING_MODEL=all-MiniLM-L6-v2
+LLM_MODEL=gpt-3.5-turbo
+
+# Data Settings
+SAMPLE_SIZE=1000
+MAX_REVIEW_LENGTH=512
+
+# Dashboard Settings
+DASHBOARD_TITLE=AI-Powered Consumer Insights Platform
+DASHBOARD_SUBTITLE=Real-time Amazon Review Analysis & Business Intelligence
